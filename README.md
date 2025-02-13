@@ -33,7 +33,7 @@ This Lambda function is invoked by the first Lambda (`terraform-troubleshooting.
 ### Environment Variables
 
 #### **`terraform-troubleshooting.py`**
-- `LAMBDA_2_FUNCTION_NAME`: The name of the Lambda function (`fetch-error-code-details.py`) to invoke for fetching error and repo details.
+- `LAMBDA_2_FUNCTION_NAME`: The name of the Lambda function (`fetch-error-code-details`) to invoke for fetching error and repo details.
 - `BEDROCK_MODEL_ID`: The Bedrock model used to analyze errors and generate troubleshooting steps (e.g., `anthropic.claude-3-sonnet-20240229-v1:0`).
 
 #### **`fetch-error-code-details.py`**
