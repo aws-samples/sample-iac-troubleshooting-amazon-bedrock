@@ -1,8 +1,8 @@
-# Accelerate IaC Troubleshooting with Agents for Amazon Bedrock:
+# Accelerate IaC Troubleshooting with Agents for Amazon Bedrock
 
 This repository contains two AWS Lambda functions designed to automate and streamline the troubleshooting of Infrastructure as Code (IaC) issues, specifically for Terraform. These Lambdas are deployed and invoked via **Amazon Bedrock Agents** using action groups to provide **context-aware troubleshooting** guidance and direct developers to appropriate teams when needed.
 
-## Overview:
+## Overview
 
 ### 1. **`terraform-troubleshooting.py`**
 This Lambda function acts as the orchestrator for troubleshooting Terraform issues. It receives the error context from Amazon Bedrock Agents and forwards relevant details to the second Lambda. Once it collects the necessary error logs and repository data, it generates prompts for Amazon Bedrock's model to provide troubleshooting steps.
@@ -20,9 +20,9 @@ This Lambda function is invoked by the first Lambda (`terraform-troubleshooting.
 6. The Bedrock model returns context-aware troubleshooting steps.
 7. The Bedrock Agent provides the troubleshooting steps to the user or directs them to the appropriate teams if necessary.
 
-## Setup:
+## Setup
 
-### Prerequisites:
+### Prerequisites
 
 - AWS Lambda functions (deployed via Bedrock Agent)
 - Amazon Bedrock Agent with configured action groups
@@ -41,7 +41,7 @@ This Lambda function is invoked by the first Lambda (`terraform-troubleshooting.
 - `VCS_SECRET_NAME`: The name of the secret containing the GitLab API token, stored in AWS Secrets Manager.
 - `TERRAFORM_API_URL`: The base API URL for Terraform Cloud.
 
-## Deployment:
+## Deployment
 
 The Lambda functions are deployed as part of an **Amazon Bedrock Agent** setup, and the agent uses **action groups** to invoke them. Here's how to set up the deployment:
 
@@ -67,7 +67,7 @@ The Lambda functions are deployed as part of an **Amazon Bedrock Agent** setup, 
     - Ensure the **Bedrock Agent** is set up with **action groups** that map to the `terraform-troubleshooting.py` Lambda function.
     - Define the correct input parameters (such as workspace URL, repo URL, branch name) that the action group will forward to the Lambda functions.
 
-## Example Workflow:
+## Example Workflow
 
 ### Step 1: User Submission
 The user submits a request to troubleshoot a Terraform error via the Bedrock Agent interface, providing details such as the Terraform Cloud workspace URL and GitLab repository URL.
@@ -102,10 +102,10 @@ You can test the Lambda functions locally or through the AWS Lambda console. Ens
 ### Expected Output:
 The Bedrock Agent will return context-aware troubleshooting steps or escalate the issue to relevant teams based on platform guardrails.
 
-## Security:
+## Security
 
 Ensure that API tokens for Terraform Cloud and GitLab are stored securely in AWS Secrets Manager. Follow the least privilege principle when assigning IAM roles to the Lambda functions.
 
-## License:
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
